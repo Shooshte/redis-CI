@@ -11,7 +11,6 @@ databases 16
 always-show-logo no
 set-proc-title yes
 proc-title-template "{title} {listen-addr} {server-mode}"
-save ${REDIS_SAVE_INTERVAL}
 stop-writes-on-bgsave-error yes
 rdbcompression yes
 rdbchecksum yes
@@ -27,7 +26,6 @@ repl-diskless-load disabled
 repl-disable-tcp-nodelay no
 replica-priority 100
 acllog-max-len 128
-requirepass ${REDIS_PASSWORD}
 lazyfree-lazy-eviction no
 lazyfree-lazy-expire no
 lazyfree-lazy-server-del no
@@ -70,5 +68,7 @@ dynamic-hz yes
 aof-rewrite-incremental-fsync yes
 rdb-save-incremental-fsync yes
 jemalloc-bg-thread yes
-maxmemory ${REDIS_MAX_MEMORY}
 maxmemory-policy allkeys-lru
+maxmemory ${REDIS_MAX_MEMORY}
+requirepass ${REDIS_PASSWORD}
+save ${REDIS_SAVE_INTERVAL}
