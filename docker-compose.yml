@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  redis-local:
+    image: hn-redis:latest
+    restart: always
+    ports:
+      - '6379:6379'
+    command: 
+      - redis-server 
+      - redis.conf
+    volumes: 
+      - redis-local:/data
+
+  redis-dev:
+    image: hn-redis:latest
+    restart: always
+    ports:
+      - '6379:6379'
+    command: 
+      - redis-server 
+      - redis.conf
+    volumes: 
+      - redis-dev:/data
+
+volumes:
+  redis-local:
+    driver: local
+  redis-dev:
+    driver: local
