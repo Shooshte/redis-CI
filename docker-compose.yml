@@ -2,7 +2,7 @@ version: '3'
 
 services:
   redis-local:
-    image: hn-redis:latest
+    image: redis-tutorial:latest
     restart: always
     ports:
       - '6379:6379'
@@ -13,7 +13,7 @@ services:
       - redis-local:/data
 
   redis-dev:
-    image: hn-redis:latest
+    image: redis-tutorials:latest
     restart: always
     ports:
       - '6379:6379'
